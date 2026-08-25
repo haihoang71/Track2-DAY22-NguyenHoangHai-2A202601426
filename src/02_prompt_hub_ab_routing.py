@@ -11,8 +11,13 @@ NHIỆM VỤ:
 DELIVERABLE: 2 prompt version hiển thị trong Prompt Hub trên https://smith.langchain.com
 """
 import sys
+import io
 import hashlib
 from pathlib import Path
+
+# ── Ép stdout và stderr dùng UTF-8 để khắc phục lỗi 'charmap' trên Windows ──
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
 
 sys.path.insert(0, str(Path(__file__).parent))
 
